@@ -22,5 +22,5 @@ fn main() {
     sentence.push_str(planet);
     println!("frase final: {}", sentence);
     println!("{:?}", &sentence[0..5]);
-    //! error -> println!("{:?}", &sentence[12..13]);
+    // error -> println!("{:?}", &sentence[12..13]);
 }

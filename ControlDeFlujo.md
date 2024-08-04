@@ -81,3 +81,61 @@ fn main() {
 
 - `break` rompe el bucle, se sale, bye
 - `continue` interrumpe la iteración, no el bucle
+
+## Bloques y ámbitos
+
+### Bloques
+
+Podemos encerrar código para momentos específicos, como una función anónima
+
+```rust
+fn main() {
+    let z = 13;
+    let x = {
+        let y = 10;
+        println!("y: {y}");
+        z - y
+    };
+    println!("x: {x}");
+}
+```
+
+> Si la última expresión termina con `;`, el tipo y el valor resultante será `()`.
+
+### Ámbitos y Shadowing
+
+Básicamente el Scope de una variable, con los bloques podríamos delimitar variables, incluso declarar una variable con el nombre de una de nivel superior, pero no creo que sea una buena practica, pero esta la opción
+
+```rust
+fn main() {
+    let a = 10;
+    println!("antes: {a}");
+    {
+        let a = "hola";
+        println!("ámbito interno: {a}");
+
+        let a = true;
+        println!("sombreado en el ámbito interno: {a}");
+    }
+
+    println!("después: {a}");
+}
+```
+
+## Funciones
+
+Lo que ya sabes de como funcionan, pero se usa el `-> <TipoDeDato>` para indicar que tienen que regresar
+
+```rust
+fn gcd(a: u32, b: u32) -> u32 {
+   if b > 0 {
+       gcd(b, a % b)
+   } else {
+       a
+   }
+}
+
+fn main() {
+   println!("gcd: {}", gcd(143, 52));
+}
+```

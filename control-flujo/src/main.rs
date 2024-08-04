@@ -30,16 +30,53 @@
 //     }
 // }
 
+// fn main() {
+//     let mut i = 0;
+//     loop {
+//         i += 1;
+//         if i % 2 == 1 {continue}
+
+//         println!("{i}");
+
+//         if i > 100 {
+//             break;
+//         }
+//     }
+// }
+
+// fn main() {
+//     let z = 13;
+//     let x = {
+//         let y = 10;
+//         println!("y: {y}");
+//         z - y
+//     };
+//     println!("x: {x}");
+// }
+
+// fn gcd(a: u32, b: u32) -> u32 {
+//    if b > 0 {
+//        gcd(b, a % b)
+//    } else {
+//        a
+//    }
+// }
+
+// fn main() {
+//    println!("gcd: {}", gcd(143, 52));
+// }
+
+/// Determina la longitud de la secuencia de Collatz que empieza por `n`.
+fn collatz_length(n: i32, paso: i16) -> u32 {
+    println!("Paso n{}",paso);
+  if n == 1 {return 1;}
+  if n%2 == 0 {return collatz_length(n/2, paso+1)}
+return  collatz_length(3*n+1, paso+1);
+
+}
+
 fn main() {
-    let mut i = 0;
-    loop {
-        i += 1;
-        if i % 2 == 1 {continue}
+    let num = 3;
 
-        println!("{i}");
-
-        if i > 100 {
-            break;
-        }
-    }
+    collatz_length(num, 1);
 }
